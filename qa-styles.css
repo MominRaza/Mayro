@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
+
+
 body{
 	font-family: 'Roboto', sans-serif;
 	background-color: rgb(221, 221, 221);
@@ -15,27 +17,33 @@ a{
 	text-decoration: none;
 }
 .qa-body-wrapper{
-	margin-top: 56px;
+
 }
+
+/* header */
 .qa-header{
+	
+}
+.qa-header-clear{
+	height: 56px;
+}
+.qa-logo{
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 56px;
+	padding-top: 12px;
 	/* Mobile Landscape: 48dp
 	Mobile Portrait: 56dp
 	Tablet/Desktop: 64dp */
 	background-color: blue;
-	color: white;
-}
-
-.qa-logo{
-	margin-top: 12px;
-	margin-left: 40px;
 }
 .qa-logo-link{
+	margin-top: 12px;
+	margin-left: 40px;
 	font-size: 24px;
+	color: white;
 }
 .qa-nav-user, .qa-search, .qa-nav-main{
 	display: none;
@@ -47,7 +55,6 @@ a{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	color: black;
 	padding: 20px;
 	border-radius: 20px;
 	box-shadow: 1px 1px 10px grey;
@@ -64,7 +71,7 @@ a{
 	padding: 10px 20px;
 }
 .qa-search{
-	/* display: block; */
+	display: block;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -95,7 +102,6 @@ a{
 	width: 300px;
 	height: 100vh;
 	background-color: white;
-	color: black;
 	box-shadow: 1px 0 10px lightgray;
 }
 .qa-nav-main-list{
@@ -111,13 +117,17 @@ a{
 	width: 100%;
 }
 .qa-nav-sub{
+
+}
+.qa-nav-sub-clear{
+	height: 40px;
+}
+.qa-nav-sub-list{
 	position: fixed;
 	top: 56px;
 	left: 0;
-	width: 100%;
+	width: calc(100% + 1px);
 	background-color: rgb(51, 51, 226);
-}
-.qa-nav-sub-list{
 	display: flex;
 	overflow: hidden;
 	overflow-x: auto;
@@ -130,10 +140,15 @@ a{
 .qa-nav-sub-link{
 	min-width: max-content;
 	padding: 10px;
+	color: white;
 }
+
+/* sidepanel */
 .qa-sidepanel{
 	display: none;
 }
+
+/* questions list */
 .qa-q-list-item{
 	border-radius: 10px;
 	box-shadow: 1px 1px 5px lightgray;
@@ -171,7 +186,18 @@ a{
 .qa-q-item-stats{
 	width: calc(100% + 20px);
 	border-top: 1px solid gray;
-	padding: 10px;
 	margin: 10px 0 -10px -10px;
 	border-radius: 0 0 10px 10px;
+	display: flex;
+}
+.qa-voting{
+	display: flex;
+}
+.qa-vote-count, .qa-a-count{
+	padding: 10px;
+}
+
+/* question page */
+.qa-main-heading h1{
+	font-size: 24px;
 }

@@ -8,6 +8,17 @@ class qa_html_theme extends qa_html_theme_base
 		parent::head_metas();
 	}
 
+	public function head_css()
+	{
+		$this->content['css_src'][] = $this->rooturl . 'icons/material-icons.css';
+		parent::head_css();
+	}
+
+	public function search_button($search)
+	{
+		$this->output('<button type="submit" class="qa-search-button"><i class="material-icons">search</i></button>');
+	}
+
 	public function q_list_item($q_item)
 	{
 		$this->output('<div class="qa-q-list-item' . rtrim(' ' . @$q_item['classes']) . '" ' . @$q_item['tags'] . '>');
