@@ -1,26 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 :root{
-	--primary: #6200EE;
-	--primary-dark: #3700B3;
-	--primary-light: #BB86FC;
-    --secondary: #03DAC6;
-	--secondary-dark: #018786;
+	--primary:#673ab7;
+	--primary-dark:#320b86;
+	--primary-light: #9a67ea;
+    --secondary: #ffab91;
+	--secondary-dark: #c97b63;
+	--secondary-light: #ffddc1;
 
-    --background: #FFFFFF;
+    --background: #EEEEEE;
     --surface: #FFFFFF;
-	--error: #B00020;
+	--error: #d50000;
 
 	--on-primary: #FFFFFF;
 	--on-secondary: #000000;
 	--on-background: #000000;
 	--on-surface: #000000;
 	--on-error: #FFFFFF;
+
+	--link: #2980b9;
 }
 
 body{
 	font-family: 'Roboto', sans-serif;
 	background-color: var(--background);
+	width: 100%;
+	overflow: hidden;
+	overflow-y: auto;
 }
 *{
 	padding: 0;
@@ -29,10 +35,10 @@ body{
 }
 
 a{
-	color: unset;
+	color: var(--link);
 	text-decoration: none;
 }
-input[type='text'], input[type='submit'], select, textarea{
+input[type='text'], input[type='submit'], input[type='password'], select, textarea{
 	width: 100%;
 	padding: 5px 10px;
 	font-size: 1.2em;
@@ -76,6 +82,7 @@ input[type='submit']{
 	left: 10px;
 	color: var(--on-primary);
 	font-size: 30px;
+	cursor: pointer;
 }
 #search-toggle{
 	position: fixed;
@@ -84,6 +91,7 @@ input[type='submit']{
 	color: var(--on-primary);
 	font-size: 30px;
 	z-index: 2;
+	cursor: pointer;
 }
 #user-toggle{
 	position: fixed;
@@ -95,7 +103,8 @@ input[type='submit']{
 	height: 36px;
 	overflow: hidden;
 	border-radius: 50%;
-	border: 2px solid white;
+	border: 2px solid var(--on-primary);
+	cursor: pointer;
 }
 #user-toggle img{
 	width: 100%;
@@ -134,6 +143,7 @@ input[type='submit']{
 }
 .qa-nav-user-link{
 	padding: 10px 20px;
+	color: var(--on-surface);
 }
 .qa-search{
 	position: fixed;
@@ -190,6 +200,7 @@ input[type='submit']{
 .qa-nav-main-link{
 	padding: 15px 20px;
 	width: 100%;
+	color: var(--on-surface);
 }
 
 .qa-nav-main-link::before{
@@ -221,6 +232,17 @@ input[type='submit']{
 .qa-nav-user-login .qa-nav-user-link::before{content: "login";}
 .qa-nav-user-register .qa-nav-user-link::before{content: "person_add";}
 
+.qa-favorite-image{
+	padding: 5px;
+}
+.qa-favorite-image::before{
+	font-family: "Material Icons";
+	/* font-size: 24px; */
+    position: absolute;
+    /* margin-left: 0px; */
+	margin-top: -3px;
+	content: "person_add";
+}
 .qa-nav-sub{
 
 }
@@ -229,7 +251,7 @@ input[type='submit']{
 }
 .qa-nav-sub-list{
 	position: fixed;
-	top: 56px;
+	top: 55px;
 	left: 0;
 	width: 100%;
 	background-color: var(--primary);
@@ -246,10 +268,10 @@ input[type='submit']{
 .qa-nav-sub-link{
 	min-width: max-content;
 	padding: 10px;
-	color: white;
+	color: var(--on-primary);
 }
 .qa-nav-sub-link.qa-nav-sub-selected{
-	border-bottom: 3px solid white;
+	border-bottom: 3px solid var(--on-primary);
 }
 
 /* sidepanel */
@@ -257,17 +279,29 @@ input[type='submit']{
 	display: none;
 }
 
+/* qa-main */
+.qa-main-heading,
+#a_list_title,
+.qa-widget-main h2,
+.qa-part-form-2 h2{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
 /* questions list */
 .qa-q-list-item{
 	border-radius: 10px;
 	box-shadow: 1px 1px 5px lightgray;
-	margin: 5px;
-	background-color: white;
+	margin: 10px 0;
+	background-color: var(--surface);
 	padding: 10px;
 }
 .qa-q-item-title{
 	font-weight: bold;
 	margin-bottom: 5px;
+}
+.qa-q-item-title a{
+	color: var(--on-surface);
 }
 .qa-q-item-avatar-meta{
 	font-size: .9em;
@@ -275,12 +309,15 @@ input[type='submit']{
 .qa-q-item-when, .qa-q-item-where-data, .qa-q-item-who-data{
 	font-weight: 500;
 }
-.qa-q-item-tag-list{
+/* tags */
+.qa-q-item-tag-list,
+.qa-q-view-tag-list{
 	list-style: none;
 	display: flex;
 	margin-top: 10px;
 }
-.qa-q-item-tag-item{
+.qa-q-item-tag-item,
+.qa-q-view-tag-item{
 	background-color: var(--secondary);
 	border-radius: 3px;
 	width: min-content;
@@ -292,6 +329,7 @@ input[type='submit']{
 	color: var(--on-secondary);
 	font-size: .9em;
 }
+
 .qa-q-item-stats{
 	width: calc(100% + 20px);
 	border-top: 1px solid gray;
@@ -313,15 +351,119 @@ input[type='submit']{
 
 /* fab */
 .qam-ask{
+    z-index: 1;
 	background-color: var(--secondary);
     color: var(--on-secondary);
     border-radius: 20px;
-    padding: 10px 15px;
+    padding: 10px 0;
     position: fixed;
     bottom: 15px;
 	right: 15px;
 	box-shadow: 1px 1px 10px gray;
 }
+.qam-ask-link{
+	padding: 10px 15px;
+	border-radius: 20px;
+	color: var(--on-secondary);
+}
 .qam-ask .material-icons{
     margin-right: 5px;
+}
+
+/* footer */
+.qa-footer{
+	margin-top: 50px;
+	padding: 10px;
+}
+
+/* form */
+.qa-form-tall-label{
+	padding-top: 20px;
+}
+.qa-form-tall-data{
+	padding-top: 10px;
+}
+.qa-form-tall-buttons{
+	padding-top: 20px;
+}
+
+.qa-form-tall-error{
+	color: var(--error);
+}
+
+.qa-form-tall-button,
+.qa-form-wide-button,
+.qa-form-basic-button{
+	border: none;
+	border-radius: 2px;
+}
+.qa-form-tall-button-save,
+.qa-form-wide-button-save,
+.qa-form-wide-button-saverecalc,
+.qa-form-wide-button-dosave,
+.qa-form-tall-button-0,
+.qa-form-tall-button-ask,
+.qa-form-tall-button-login,
+.qa-form-tall-button-register,
+.qa-form-wide-button-setbonus,
+.qa-form-tall-button-post,
+.qa-form-wide-button-edit,
+.qa-form-wide-button-unblock,
+.qa-form-wide-button-change{
+	background-color: var(--primary-dark);
+	color: var(--on-primary);
+}
+.qa-form-tall-button-reset,
+.qa-form-wide-button-reset,
+.qa-form-tall-button-addpage,
+.qa-form-tall-button-addlink,
+.qa-form-wide-button-showdefaults,
+.qa-form-basic-button,
+.qa-form-tall-button-add,
+.qa-form-tall-button-cancel,
+.qa-form-wide-button-block,
+.qa-form-wide-button-hideall{
+	background-color: var(--secondary);
+	color: var(--on-secondary);
+}
+.qa-form-wide-button-delete_expired,
+.qa-form-wide-button-delete_all,
+.qa-form-wide-button-delete{
+	margin-top: 20px;
+	background-color: var(--error);
+	color: var(--on-error);
+}
+.qa-form-basic-button{
+	margin-top: 20px;
+}
+
+.qa-main{
+	padding: 0 10px;
+}
+
+/* question view */
+
+.qa-part-q-view, .qa-a-list-item{
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px lightgray;
+	margin: 10px 0;
+	background-color: var(--surface);
+	padding: 10px;
+}
+
+/* error */
+.qa-error{
+	background-color: var(--error);
+	color: var(--on-error);
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.qa-error a{
+	color: var(--primary-light);
+}
+
+/* user */
+.qa-form-wide-label{
+	font-weight: bold;
+	margin-top: 20px;
 }
