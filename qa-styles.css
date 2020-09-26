@@ -1,3 +1,13 @@
+/*
+    Theme URI: https://github.com/MominRaza/Mayro
+	Theme Version: 0.004
+    Theme Date: 2020-09-25
+    Theme Author: Momin Raza
+    Theme Author URI: https://github.com/MominRaza
+    Theme License: _Short name of plugin license, e.g. GPLv2/3_
+    Theme Update Check URI: https://github.com/MominRaza/Mayro/releases
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 :root{
@@ -63,30 +73,31 @@ input[type='submit']{
 	left: 0;
 	width: 100%;
 	height: 56px;
-	padding-top: 12px;
+	padding-top: 13px;
 	/* Mobile Landscape: 48dp
 	Mobile Portrait: 56dp
 	Tablet/Desktop: 64dp */
 	background-color: var(--primary);
 	box-shadow: 0 2px 3px gray;
+    z-index: 1;
 }
 .qa-logo-link{
-	margin-top: 12px;
-	margin-left: 45px;
+	margin-left: 60px;
 	font-size: 24px;
 	color: var(--on-primary);
 }
 #menu-toggle{
 	position: fixed;
-	top: 26px;
+	top: 27px;
 	left: 10px;
 	color: var(--on-primary);
 	font-size: 30px;
 	cursor: pointer;
+	z-index: 1;
 }
 #search-toggle{
 	position: fixed;
-	top: 26px;
+	top: 27px;
 	right: 50px;
 	color: var(--on-primary);
 	font-size: 30px;
@@ -105,6 +116,7 @@ input[type='submit']{
 	border-radius: 50%;
 	border: 2px solid var(--on-primary);
 	cursor: pointer;
+	z-index: 1;
 }
 #user-toggle img{
 	width: 100%;
@@ -131,6 +143,7 @@ input[type='submit']{
 	box-shadow: 1px 1px 10px grey;
 	width: 300px;
 	height: 50vh;
+	z-index: 1;
 }
 #qa-nav-user.active .qa-nav-user{
 	display: block;
@@ -152,6 +165,7 @@ input[type='submit']{
 	width: 100%;
 	background-color: var(--primary);
 	height: 56px;
+	z-index: 1;
 }
 #qa-search.active .qa-search{
 	display: block;
@@ -198,7 +212,7 @@ input[type='submit']{
 	width: 100%;
 }
 .qa-nav-main-link{
-	padding: 15px 20px;
+	padding: 15px 30px;
 	width: 100%;
 	color: var(--on-surface);
 }
@@ -207,7 +221,7 @@ input[type='submit']{
 	font-family: "Material Icons";
 	font-size: 24px;
     position: absolute;
-    margin-left: -36px;
+    margin-left: -46px;
     margin-top: -3px;
 }
 .qa-nav-main-activity .qa-nav-main-link::before{content: "bar_chart";}
@@ -233,15 +247,15 @@ input[type='submit']{
 .qa-nav-user-register .qa-nav-user-link::before{content: "person_add";}
 
 .qa-favorite-image{
-	padding: 5px;
+	padding: 3px;
 }
 .qa-favorite-image::before{
 	font-family: "Material Icons";
-	/* font-size: 24px; */
+	color: var(--link);
     position: absolute;
-    /* margin-left: 0px; */
-	margin-top: -3px;
-	content: "person_add";
+    margin-left: -6px;
+	margin-top: 2px;
+	content: "star_border";
 }
 .qa-nav-sub{
 
@@ -260,10 +274,25 @@ input[type='submit']{
 	overflow-x: auto;
 	list-style: none;
 	box-shadow: 0 2px 3px gray;
+	z-index: 1;
+}
+.qa-nav-sub-list::-webkit-scrollbar,
+.qa-q-item-tag-list::-webkit-scrollbar{
+	display: none;
+}
+@media(min-width:768px){
+	.qa-nav-sub-list::-webkit-scrollbar,
+	.qa-q-item-tag-list::-webkit-scrollbar{
+		height: 3px;
+	}
+	.qa-nav-sub-list::-webkit-scrollbar-thumb,
+	.qa-q-item-tag-list::-webkit-scrollbar-thumb{
+		background-color: var(--secondary-light);
+	}
 }
 .qa-nav-sub-item{
 	min-width: max-content;
-	padding: 10px 0 12px 0;
+	padding: 10px 0 13px 0;
 }
 .qa-nav-sub-link{
 	min-width: max-content;
@@ -276,10 +305,57 @@ input[type='submit']{
 
 /* sidepanel */
 .qa-sidepanel{
-	display: none;
+	/* display: none; */
 }
 
+.qa-sidebar, .qa-widget-side{
+	margin: 10px 0;
+	background-color: var(--surface);
+	padding: 16px 16px 8px 16px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 3px 0px rgba(0,0,0,.12);
+}
+.qa-sidebar{
+	background-color: var(--secondary-light);
+}
+.qa-activity-count{
+	display: flex;
+	flex-wrap: wrap;
+}
+.qa-activity-count-item{
+	flex: 1;
+	margin: 10px;
+	text-align: center;
+}
+.qa-activity-count-item span{
+	display: block;
+	font-size: 1.3em;
+	font-weight: 500;
+}
 /* qa-main */
+
+.qa-sidepanel, .qa-main{
+	padding: 0 10px;
+}
+
+@media(min-width: 768px){
+	.qam-main-sidepanel{
+		display: flex;
+		justify-content: center;
+	}
+	.qa-main{
+		width: calc(100% - 400px);
+		max-width: 1000px;
+		/* margin: 0 auto; */
+	}
+	.qa-sidepanel{
+		width: 400px;
+		/* margin: 0 auto; */
+	}
+}
+
 .qa-main-heading,
 #a_list_title,
 .qa-widget-main h2,
@@ -290,21 +366,50 @@ input[type='submit']{
 
 /* questions list */
 .qa-q-list-item{
-	border-radius: 10px;
-	box-shadow: 1px 1px 5px lightgray;
 	margin: 10px 0;
 	background-color: var(--surface);
-	padding: 10px;
+	padding: 16px 16px 0 16px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 3px 0px rgba(0,0,0,.12);
 }
 .qa-q-item-title{
-	font-weight: bold;
+	font-size: 1.25rem;
+	/* line-height: 2rem; */
+    font-weight: 500;
+    letter-spacing: 0.0125em;
 	margin-bottom: 5px;
+	/* margin-left: 50px; */
 }
 .qa-q-item-title a{
 	color: var(--on-surface);
 }
+.qam-q-post-meta{
+	min-height: 60px;
+	padding-left: 56px;
+}
 .qa-q-item-avatar-meta{
-	font-size: .9em;
+	font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+	letter-spacing: 0.03125em;
+}
+.qa-q-item-meta{
+	/* margin-left: 50px; */
+	/* position: absolute; */
+}
+.qa-q-item-avatar-meta .qa-avatar-link{
+	position: absolute;
+	height: 46px;
+	width: 46px;
+	margin-left: -56px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.qa-avatar-image{
+	width: 100%;
+	height: auto;
 }
 .qa-q-item-when, .qa-q-item-where-data, .qa-q-item-who-data{
 	font-weight: 500;
@@ -314,28 +419,37 @@ input[type='submit']{
 .qa-q-view-tag-list{
 	list-style: none;
 	display: flex;
-	margin-top: 10px;
+	margin-top: 14px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	overflow-x: auto;
 }
 .qa-q-item-tag-item,
 .qa-q-view-tag-item{
 	background-color: var(--secondary);
-	border-radius: 3px;
+	border-radius: 20px;
 	width: min-content;
-	padding: 2px 0;
-	margin-right: 5px;
+	padding: 6px 0;
+	margin-right: 8px;
+	height: 32px;
+	min-width: max-content;
 }
 .qa-tag-link{
-	padding: 2px 5px;
+	padding: 6px 12px;
+	border-radius: 20px;
 	color: var(--on-secondary);
-	font-size: .9em;
+	/* font-size: .9em; */
 }
 
 .qa-q-item-stats{
 	width: calc(100% + 20px);
-	border-top: 1px solid gray;
-	margin: 10px 0 -10px -10px;
-	border-radius: 0 0 10px 10px;
 	display: flex;
+	text-transform: uppercase;
+	color: var(--link);
+	min-height: 42px;
+    margin: 0;
+    /* padding: 8px; */
+    border-top: 1px solid transparent;
 }
 .qa-voting{
 	display: flex;
@@ -344,6 +458,9 @@ input[type='submit']{
 	padding: 10px;
 }
 
+.qa-suggest-next{
+	margin-bottom: 20px;
+}
 /* question page */
 .qa-main-heading h1{
 	font-size: 24px;
@@ -435,10 +552,6 @@ input[type='submit']{
 }
 .qa-form-basic-button{
 	margin-top: 20px;
-}
-
-.qa-main{
-	padding: 0 10px;
 }
 
 /* question view */

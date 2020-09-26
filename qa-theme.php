@@ -24,6 +24,33 @@ class qa_html_theme extends qa_html_theme_base
 		parent::head_script();
 	}
 
+	
+	public function body_content()
+	{
+		$this->body_prefix();
+		$this->notices();
+
+		$extratags = isset($this->content['wrapper_tags']) ? $this->content['wrapper_tags'] : '';
+		$this->output('<div class="qa-body-wrapper"' . $extratags . '>', '');
+
+		$this->widgets('full', 'top');
+		$this->header();
+		$this->widgets('full', 'high');
+
+		$this->output('<div class="qam-main-sidepanel">');
+		$this->main();
+		$this->sidepanel();
+		$this->output('</div>');
+
+		$this->widgets('full', 'low');
+		$this->footer();
+		$this->widgets('full', 'bottom');
+
+		$this->output('</div> <!-- END body-wrapper -->');
+
+		$this->body_suffix();
+	}
+
 	public function header()
 	{
 		$this->output('<div class="qa-header">');
@@ -121,6 +148,21 @@ class qa_html_theme extends qa_html_theme_base
 		$this->q_item_clear();
 
 		$this->output('</div> <!-- END qa-q-list-item -->', '');
+	}
+
+	public function q_item_main($q_item)
+	{
+		$this->output('<div class="qa-q-item-main">');
+		$this->view_count($q_item);
+		$this->output('<div class="qam-q-post-meta">');
+		$this->post_avatar_meta($q_item, 'qa-q-item');
+		$this->output('</div>');
+		$this->q_item_title($q_item);
+		$this->q_item_content($q_item);
+		$this->post_tags($q_item, 'qa-q-item');
+		$this->q_item_buttons($q_item);
+
+		$this->output('</div>');
 	}
 
 	public function search_field($search)
