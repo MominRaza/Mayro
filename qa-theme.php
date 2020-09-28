@@ -154,15 +154,85 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$this->output('<div class="qa-q-item-main">');
 		$this->view_count($q_item);
-		$this->output('<div class="qam-q-post-meta">');
 		$this->post_avatar_meta($q_item, 'qa-q-item');
-		$this->output('</div>');
 		$this->q_item_title($q_item);
 		$this->q_item_content($q_item);
 		$this->post_tags($q_item, 'qa-q-item');
 		$this->q_item_buttons($q_item);
 
 		$this->output('</div>');
+	}
+	public function post_avatar_meta($post, $class, $avatarprefix = null, $metaprefix = null, $metaseparator = '<br/>')
+	{
+		$this->output('<div class="qam-q-post-meta">');
+		$this->output('<span class="' . $class . '-avatar-meta">');
+		$this->avatar($post, $class, $avatarprefix);
+		$this->post_meta($post, $class, $metaprefix, $metaseparator);
+		$this->output('</span>');
+		$this->output('</div>');
+	}
+
+	public function q_view_main($q_view)
+	{
+		$this->output('<div class="qa-q-view-main">');
+
+		if (isset($q_view['main_form_tags'])) {
+			$this->output('<form ' . $q_view['main_form_tags'] . '>'); // form for buttons on question
+		}
+
+		$this->post_avatar_meta($q_view, 'qa-q-view');
+		$this->view_count($q_view);
+		$this->q_view_content($q_view);
+		$this->q_view_extra($q_view);
+		$this->q_view_follows($q_view);
+		$this->q_view_closed($q_view);
+		$this->post_tags($q_view, 'qa-q-view');
+		$this->q_view_buttons($q_view);
+
+		if (isset($q_view['main_form_tags'])) {
+			$this->form_hidden_elements(@$q_view['buttons_form_hidden']);
+			$this->output('</form>');
+		}
+
+		$this->c_list(@$q_view['c_list'], 'qa-q-view');
+		$this->c_form(@$q_view['c_form']);
+
+		$this->output('</div> <!-- END qa-q-view-main -->');
+	}
+
+	public function a_item_main($a_item)
+	{
+		$this->output('<div class="qa-a-item-main">');
+
+		if (isset($a_item['main_form_tags'])) {
+			$this->output('<form ' . $a_item['main_form_tags'] . '>'); // form for buttons on answer
+		}
+
+		$this->post_avatar_meta($a_item, 'qa-a-item');
+		
+		if ($a_item['hidden'])
+			$this->output('<div class="qa-a-item-hidden">');
+		elseif ($a_item['selected'])
+			$this->output('<div class="qa-a-item-selected">');
+
+		$this->a_selection($a_item);
+		$this->error(@$a_item['error']);
+		$this->a_item_content($a_item);
+
+		if ($a_item['hidden'] || $a_item['selected'])
+			$this->output('</div>');
+
+		$this->a_item_buttons($a_item);
+
+		if (isset($a_item['main_form_tags'])) {
+			$this->form_hidden_elements(@$a_item['buttons_form_hidden']);
+			$this->output('</form>');
+		}
+
+		$this->c_list(@$a_item['c_list'], 'qa-a-item');
+		$this->c_form(@$a_item['c_form']);
+
+		$this->output('</div> <!-- END qa-a-item-main -->');
 	}
 
 	public function search_field($search)

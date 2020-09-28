@@ -1,8 +1,10 @@
+x = window.matchMedia('(max-width: 1023px)');
 function toggleMenu() {
     var menu = document.getElementById('menu-toggle');
-    menu.innerText = menu.innerText == 'menu' ? 'close' : 'menu';
-    var menuBox = document.getElementById('qa-nav-main');
-    menuBox.classList.toggle('active');
+    if (x.matches) { // If media query matches
+        menu.innerText = menu.innerText == 'menu' ? 'close' : 'menu';
+    }
+    document.body.classList.toggle('menu-active');
 }
 function toggleSearch() {
     var search = document.getElementById('search-toggle');
