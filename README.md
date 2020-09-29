@@ -3,18 +3,18 @@
 Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2answer.org/).
 
 ## Screenshots
-<img src="/images/0.png" width="200" />
-![Navigation Drawer](/images/0.png?s=200)
-![Home Mobile](/images/1.png =250x)
-![Recent Activity](/images/8.png =250x)
-![Home Tablet](/images/2.png =250x)
-![Home Small Laptop](/images/3.png =250x)
-![Home Laptop](/images/4.png =250x)
-![Question View](/images/5.png =250x)
-![Ask A Question](/images/6.png =250x)
-![Categories](/images/7.png =250x)
-![Tags](/images/9.png =250x)
-![Users](/images/10.png =250x)
+
+<img src="/images/0.png" width="200" alt="Navigation Drawer"/>
+<img src="/images/1.png" width="200" alt="Home Mobile"/>
+<img src="/images/8.png" width="200" alt="Recent Activity"/>
+<img src="/images/2.png" width="200" alt="Home Tablet"/>
+<img src="/images/3.png" width="200" alt="Home Small Laptop"/>
+<img src="/images/4.png" width="200" alt="Home Laptop"/>
+<img src="/images/5.png" width="200" alt="Question View"/>
+<img src="/images/6.png" width="200" alt="Ask A Question"/>
+<img src="/images/7.png" width="200" alt="Categories"/>
+<img src="/images/9.png" width="200" alt="Tags"/>
+<img src="/images/10.png" width="200" alt="Users"/>
 
 ## Features
 
