@@ -172,6 +172,18 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div>');
 	}
 
+	public function q_view($q_view)
+	{
+		if (!empty($q_view)) {
+			$this->output('<div class="qa-q-view' . (@$q_view['hidden'] ? ' qa-q-view-hidden' : '') . rtrim(' ' . @$q_view['classes']) . '"' . rtrim(' ' . @$q_view['tags']) . '>');
+
+			$this->q_view_main($q_view);
+			$this->q_view_clear();
+
+			$this->output('</div> <!-- END qa-q-view -->', '');
+		}
+	}
+
 	public function q_view_main($q_view)
 	{
 		$this->output('<div class="qa-q-view-main">');
@@ -187,8 +199,10 @@ class qa_html_theme extends qa_html_theme_base
 		$this->q_view_follows($q_view);
 		$this->q_view_closed($q_view);
 		$this->post_tags($q_view, 'qa-q-view');
-		$this->q_view_buttons($q_view);
-
+		$this->output('<div class="qam-stats-buttons">');
+			$this->q_view_stats($q_view);
+			$this->q_view_buttons($q_view);
+		$this->output('</div>');
 		if (isset($q_view['main_form_tags'])) {
 			$this->form_hidden_elements(@$q_view['buttons_form_hidden']);
 			$this->output('</form>');
@@ -233,6 +247,104 @@ class qa_html_theme extends qa_html_theme_base
 		$this->c_form(@$a_item['c_form']);
 
 		$this->output('</div> <!-- END qa-a-item-main -->');
+	}
+
+	public function a_selection($post)
+	{
+		$this->output('<div class="qa-a-selection">');
+
+		if (isset($post['select_tags'])){
+			$this->post_hover_button($post, 'select_tags', '', 'qa-a-select');
+			$this->output('<i class="material-icons select">done</i>');
+		}
+		elseif (isset($post['unselect_tags'])){
+			$this->post_hover_button($post, 'unselect_tags', '', 'qa-a-unselect');
+			// $this->output('<i class="material-icons unselect">close</i>');
+		}
+		elseif ($post['selected'])
+			$this->output('<div class="qa-a-selected">&nbsp;</div>');
+
+		if (isset($post['select_text']))
+			$this->output('<i class="material-icons selected">done_all</i>');
+
+		$this->output('</div>');
+	}
+
+	public function voting_inner_html($post)
+	{
+		$this->vote_buttons($post);
+		$this->vote_clear();
+	}
+
+	public function vote_buttons($post)
+	{
+		$this->output('<div class="qa-vote-buttons ' . (($post['vote_view'] == 'updown') ? 'qa-vote-buttons-updown' : 'qa-vote-buttons-net') . '">');
+
+		switch (@$post['vote_state']) {
+			case 'voted_up':
+				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-one-button qa-voted-up');
+				$this->output('<i class="material-icons voted_up">thumb_up_alt</i>');
+				$this->output_split($post['upvotes_view'], 'selected qa-upvote-count');
+
+				$this->post_disabled_button($post, 'vote_down_tags', '', 'qa-vote-second-button qa-vote-down');
+				$this->output('<i class="material-icons">thumb_down_alt</i>');
+				$this->output_split($post['downvotes_view'], 'disabled qa-downvote-count');
+				break;
+
+			case 'voted_down':
+				$this->post_disabled_button($post, 'vote_up_tags', '', 'qa-vote-first-button qa-vote-up');
+				$this->output('<i class="material-icons">thumb_up_alt</i>');
+				$this->output_split($post['upvotes_view'], 'disabled qa-upvote-count');
+
+				$this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-one-button qa-voted-down');
+				$this->output('<i class="material-icons voted_down">thumb_down_alt</i>');
+				$this->output_split($post['downvotes_view'], 'selected qa-downvote-count');
+				break;
+
+			case 'up_only':
+				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
+				$this->output('<i class="material-icons up_only">thumb_up_alt</i>');
+				$this->output_split($post['upvotes_view'], 'enabled qa-upvote-count');
+
+				$this->post_disabled_button($post, 'vote_down_tags', '', 'qa-vote-second-button qa-vote-down');
+				$this->output('<i class="material-icons up_only">thumb_down_alt</i>');
+				$this->output_split($post['downvotes_view'], 'disabled qa-downvote-count');
+				break;
+
+			case 'enabled':
+				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
+				$this->output('<i class="material-icons enabled">thumb_up_alt</i>');
+				$this->output_split($post['upvotes_view'], 'enabled qa-upvote-count');
+
+				$this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
+				$this->output('<i class="material-icons enabled">thumb_down_alt</i>');
+				$this->output_split($post['downvotes_view'], 'enabled qa-downvote-count');
+				break;
+
+			default:
+				$this->post_disabled_button($post, 'vote_up_tags', '', 'qa-vote-first-button qa-vote-up');
+				$this->output('<i class="material-icons">thumb_up_alt</i>');
+				$this->output_split($post['upvotes_view'], 'disabled qa-upvote-count');
+
+				$this->post_disabled_button($post, 'vote_down_tags', '', 'qa-vote-second-button qa-vote-down');
+				$this->output('<i class="material-icons">thumb_down_alt</i>');
+				$this->output_split($post['downvotes_view'], 'disabled qa-downvote-count');
+				break;
+		}
+
+		$this->output('</div>');
+	}
+
+	public function favorite_button($tags, $class)
+	{
+		if (isset($tags)){
+			$this->output('<input ' . $tags . ' type="submit" value="" class="' . $class . '-button"/> ');
+			if($class == 'qa-favorite'){
+				$this->output('<i class="material-icons qa-favorite">star</i>');
+			}else{
+				$this->output('<i class="material-icons qa-unfavorite">star_border</i>');
+			}
+		}
 	}
 
 	public function search_field($search)

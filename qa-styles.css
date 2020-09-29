@@ -315,7 +315,7 @@ input[type='submit']{
 	/* display: none; */
 }
 
-.qa-sidebar, .qa-widget-side{
+.qa-sidebar, .qa-widget-side, .qa-suggest-next, .qa-part-custom{
 	margin: 10px 0;
 	background-color: var(--surface);
 	padding: 16px 16px 8px 16px;
@@ -324,8 +324,9 @@ input[type='submit']{
 				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 				0px 1px 3px 0px rgba(0,0,0,.12);
 }
-.qa-sidebar{
+.qa-sidebar, .qa-suggest-next{
 	background-color: var(--secondary-light);
+	color: var(--on-secondary);
 }
 .qa-activity-count{
 	display: flex;
@@ -407,6 +408,14 @@ input[type='submit']{
 	}
 }
 
+.qa-main-heading{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+.qa-main-heading h1{
+	width: 100%;
+}
 .qa-main-heading,
 #a_list_title,
 .qa-widget-main h2,
@@ -440,7 +449,7 @@ input[type='submit']{
 	min-height: 60px;
 	padding-left: 56px;
 }
-.qa-q-view-main .qam-q-post-meta{
+.qa-q-view-main > form > .qam-q-post-meta{
 	min-height: 70px;
 	padding-left: 70px;
 }
@@ -458,7 +467,9 @@ input[type='submit']{
 }
 .qa-q-item-avatar-meta .qa-avatar-link,
 .qa-q-view-avatar-meta .qa-avatar-link,
-.qa-a-item-avatar-meta .qa-avatar-link{
+.qa-a-item-avatar-meta .qa-avatar-link,
+.qa-message-avatar-meta .qa-avatar-link,
+.qa-c-item-avatar-meta .qa-avatar-link{
 	position: absolute;
 	height: 46px;
 	width: 46px;
@@ -520,8 +531,8 @@ input[type='submit']{
 .qa-voting{
 	display: flex;
 }
-.qa-vote-count, .qa-a-count{
-	padding: 10px;
+.qa-a-count{
+	padding: 10px 20px;
 }
 
 .qa-suggest-next{
@@ -580,7 +591,8 @@ input[type='submit']{
 
 .qa-form-tall-button,
 .qa-form-wide-button,
-.qa-form-basic-button{
+.qa-form-basic-button,
+.qa-form-light-button{
 	border: none;
 	border-radius: 2px;
 	cursor: pointer;
@@ -598,7 +610,13 @@ input[type='submit']{
 .qa-form-wide-button-edit,
 .qa-form-wide-button-unblock,
 .qa-form-wide-button-change,
-.qa-form-tall-button-saveview{
+.qa-form-tall-button-saveview,
+.qa-form-wide-button-account,
+.qa-form-tall-button-comment,
+.qa-form-tall-button-answer,
+.qa-form-light-button-answer,
+.qa-form-light-button-follow{
+	margin-top: 10px;
 	background-color: var(--primary-dark);
 	color: var(--on-primary);
 }
@@ -611,14 +629,20 @@ input[type='submit']{
 .qa-form-tall-button-add,
 .qa-form-tall-button-cancel,
 .qa-form-wide-button-block,
-.qa-form-wide-button-hideall{
+.qa-form-wide-button-hideall,
+.qa-form-light-button-comment,
+.qa-form-light-button-close,
+.qa-form-light-button-flag{
+	margin-top: 10px;
 	background-color: var(--secondary);
 	color: var(--on-secondary);
 }
 .qa-form-wide-button-delete_expired,
 .qa-form-wide-button-delete_all,
-.qa-form-wide-button-delete{
-	margin-top: 20px;
+.qa-form-wide-button-delete,
+.qa-form-light-button-delete,
+.qa-form-light-button-hide{
+	margin-top: 10px;
 	background-color: var(--error);
 	color: var(--on-error);
 }
@@ -628,7 +652,7 @@ input[type='submit']{
 
 /* question view */
 
-.qa-part-q-view, .qa-a-list-item{
+.qa-part-q-view, .qa-a-list-item, .qa-message-item, .qa-c-list-item {
 	margin: 10px 0;
 	background-color: var(--surface);
 	padding: 16px 16px 8px 16px;
@@ -642,12 +666,51 @@ input[type='submit']{
 	border-top-width: 8px;
 }
 
+.qam-stats-buttons{
+	display: flex;
+	flex-wrap: wrap;
+}
+.qam-stats-buttons .qa-q-view-stats{
+	margin-top: 8px;
+	margin-right: 10px;
+}
+.qa-a-selection input{
+	position: absolute;
+	z-index: 1;
+	opacity: 0;
+	width: 30px;
+	height: 30px;
+}
+.qa-a-selection i{
+	margin-top: 5px;
+	font-size: 30px;
+}
+.qa-a-selection i.unselect{
+	color: var(--error);
+}
+.qa-a-selection i.select{
+	color: var(--primary);
+}
+.qa-a-selection i.selected{
+	color: var(--primary-dark);
+	font-size: 40px;
+}
+
+.qa-post-content{
+	padding: 10px 0;
+	line-height: 1.4em;
+	font-size: 1.2em;
+}
 /* error */
 .qa-error{
 	background-color: var(--error);
 	color: var(--on-error);
 	padding: 10px;
 	margin-bottom: 10px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 3px 0px rgba(0,0,0,.12);
 }
 .qa-error a{
 	color: var(--primary-light);
@@ -876,3 +939,112 @@ input[type='submit']{
 		width: calc(1000px / 5 - 40px / 5);
 	}
 }
+
+/* favorites */
+.qa-part-q-list h2,
+.qa-part-ranking-users h2,
+.qa-part-ranking-tags h2,
+.qa-part-nav-list-categories h2{
+	margin-top: 20px;
+}
+.qa-part-nav-list-categories .qa-browse-cat-item{
+	background-color: var(--surface);
+}
+.qa-part-nav-list-categories .qa-browse-cat-open{
+	padding-bottom: 10px;
+}
+.qa-favoriting input{
+	position: absolute;
+	z-index: 1;
+	opacity: 0;
+	width: 30px;
+	margin-left: -2px;
+	cursor: pointer;
+	height: 30px;
+}
+.qa-favoriting i{
+	margin-top: 5px;
+	padding-top: 5px;
+	font-size: 30px;
+	color: var(--link);
+}
+.qa-waiting{
+	display: none !important;
+}
+
+/* pagination */
+.qa-page-links .qa-page-links-label{
+	display: none;
+}
+.qa-page-links-list{
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 20px 0;
+}
+.qa-page-links-item{
+	margin: 2px;
+	padding: 5px 0;
+}
+.qa-page-prev, .qa-page-link, .qa-page-next, .qa-page-selected{
+	padding: 5px 10px;
+	border-radius: 2px;
+}
+.qa-page-prev, .qa-page-next{
+	background-color: var(--primary);
+	color: var(--on-primary);
+}
+.qa-page-link{
+	background-color: var(--secondary);
+	color: var(--on-secondary);
+}
+.qa-page-selected{
+	background-color: var(--primary-dark);
+	color: var(--on-primary);
+}
+
+/* votes */
+.qa-vote-buttons input{
+	/* border: 0; */
+	position: absolute;
+	z-index: 1;
+	opacity: 0;
+	cursor: pointer;
+	width: 60px;
+}
+.qa-vote-second-button{
+	/* margin-left: 10px; */
+}
+.qa-vote-buttons i{
+	margin: 5px;
+	margin-top: 12px;
+	color: gray;
+}
+.qa-vote-buttons i.enabled{
+	color: black;
+}
+.qa-vote-buttons i.voted_up{
+	color: var(--link);
+}
+.qa-vote-buttons i.voted_down{
+	color: var(--error);
+}
+/* .qa-downvote-count{
+	margin-left: 10px;
+} */
+.qa-upvote-count-pad, .qa-downvote-count-pad{
+	display: none;
+}
+.qa-upvote-count.disabled, .qa-downvote-count.disabled{
+	color: gray;
+}
+.qa-upvote-count.enabled, .qa-downvote-count.enabled{
+	color: black;
+}
+.qa-upvote-count.selected{
+	color: var(--link);
+}
+.qa-downvote-count.selected{
+	color: var(--error);
+}
+
