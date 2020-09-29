@@ -3,19 +3,25 @@
 Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2answer.org/).
 
 ## Screenshots
-
+<p float="left">
 <img src="/images/0.png" width="200" alt="Navigation Drawer"/>
 <img src="/images/1.png" width="200" alt="Home Mobile"/>
 <img src="/images/8.png" width="200" alt="Recent Activity"/>
+</p>
+<p float="left">
 <img src="/images/2.png" width="200" alt="Home Tablet"/>
 <img src="/images/3.png" width="200" alt="Home Small Laptop"/>
 <img src="/images/4.png" width="200" alt="Home Laptop"/>
+</p>
+<p float="left">
 <img src="/images/5.png" width="200" alt="Question View"/>
 <img src="/images/6.png" width="200" alt="Ask A Question"/>
 <img src="/images/7.png" width="200" alt="Categories"/>
+</p>
+<p float="left">
 <img src="/images/9.png" width="200" alt="Tags"/>
 <img src="/images/10.png" width="200" alt="Users"/>
-
+</p>
 ## Features
 
 * Mobile first, clean content focused, responsive layout designed for redability
