@@ -49,6 +49,22 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 4. Visit `http://your-q2a-site.com/admin/general` , select the `Mayro` for both the `Site theme` and `Theme for mobile`
 5. Congratulations, Mayro theme is now up and running on your website :smile:
 
+## Recommended Settings
+
+### Admin/Users
+- Avatar size on user profile page: 200 pixels
+- Avatar size on top users page: 180 pixels
+- Avatar size on questions: 70 pixels
+- Avatar size on answers: 60 pixels
+- Avatar size on comments: 60 pixels
+- Avatar size on question lists: 60 pixels
+- Avatar size on message lists: 60 pixels
+### Admin/Viewing
+- Show separate up and down votes: True
+### Admin/Lists
+- Columns on Tags page: 1
+- Columns on Users page: 1
+
 ## License
 This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](https://github.com/MominRaza/Mayro) as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
