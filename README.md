@@ -59,8 +59,6 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 - Avatar size on comments: 60 pixels
 - Avatar size on question lists: 60 pixels
 - Avatar size on message lists: 60 pixels
-### Admin/Viewing
-- Show separate up and down votes: True
 ### Admin/Lists
 - Columns on Tags page: 1
 - Columns on Users page: 1
