@@ -315,7 +315,14 @@ input[type='submit']{
 	/* display: none; */
 }
 
-.qa-sidebar, .qa-widget-side, .qa-suggest-next, .qa-part-custom{
+.qa-sidebar,
+.qa-widget-side,
+.qa-suggest-next,
+.qa-part-custom,
+.qa-part-form-activity,
+.qa-part-message-list,
+.qa-part-form-profile,
+.qa-part-form-password{
 	margin: 10px 0;
 	background-color: var(--surface);
 	padding: 16px 16px 8px 16px;
@@ -324,6 +331,23 @@ input[type='submit']{
 				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 				0px 1px 3px 0px rgba(0,0,0,.12);
 }
+
+/* .qa-part-form-profile{
+	width: calc(60% - 10px);
+	margin-right: 10px;
+	float: left;
+}
+.qa-part-form-activity,
+.qa-part-form-password{
+    width: 40%;
+    float: right;
+}
+.qa-part-message-list{
+	width: 40%;
+    float: right;
+    margin-top: 0;
+} */
+
 .qa-sidebar, .qa-suggest-next{
 	background-color: var(--secondary-light);
 	color: var(--on-secondary);
@@ -449,9 +473,13 @@ input[type='submit']{
 	min-height: 60px;
 	padding-left: 56px;
 }
-.qa-q-view-main > form > .qam-q-post-meta{
+.qa-q-view-main > .qam-q-post-meta{
 	min-height: 70px;
 	padding-left: 70px;
+}
+.qam-q-a-a .qam-q-post-meta{
+	min-height: 30px;
+	padding-left: 0;
 }
 .qa-q-item-avatar-meta,
 .qa-q-view-avatar-meta,
@@ -482,6 +510,14 @@ input[type='submit']{
 	height: 60px;
 	width: 60px;
 	margin-left: -70px;
+}
+.qa-part-form-profile .qa-avatar-link{
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	overflow: hidden;
+	transform: translateX(-50%);
 }
 
 .qa-avatar-image{
@@ -523,7 +559,7 @@ input[type='submit']{
 	display: flex;
 	text-transform: uppercase;
 	color: var(--link);
-	min-height: 42px;
+	min-height: 40px;
     margin: 0;
     /* padding: 8px; */
     border-top: 1px solid transparent;
@@ -533,6 +569,9 @@ input[type='submit']{
 }
 .qa-a-count{
 	padding: 10px 20px;
+}
+.qam-q-a-a.a .qa-a-count{
+	padding: 10px 0;
 }
 
 .qa-suggest-next{
@@ -566,14 +605,20 @@ input[type='submit']{
 
 /* footer */
 .qa-footer{
-	margin-top: 50px;
+	margin-top: 20px;
 	padding: 10px;
 }
 
 /* form */
-.qa-form-tall-table,.qa-top-tags-table, .qa-top-users-table{
+.qa-form-tall-table,
+.qa-top-tags-table,
+.qa-top-users-table,
+.qa-form-wide-table{
 	width: -webkit-fill-available;
 	border-spacing: 0;
+}
+.qa-form-wide-table td{
+	padding: 5px 0;
 }
 .qa-form-tall-label{
 	padding-top: 20px;
@@ -582,11 +627,15 @@ input[type='submit']{
 	padding-top: 10px;
 }
 .qa-form-tall-buttons{
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
 .qa-form-tall-error{
 	color: var(--error);
+}
+
+.qa-form-tall-data ul{
+	margin-left: 20px;
 }
 
 .qa-form-tall-button,
@@ -641,7 +690,8 @@ input[type='submit']{
 .qa-form-wide-button-delete_all,
 .qa-form-wide-button-delete,
 .qa-form-light-button-delete,
-.qa-form-light-button-hide{
+.qa-form-light-button-hide,
+.qa-form-basic-button-delete_hidden{
 	margin-top: 10px;
 	background-color: var(--error);
 	color: var(--on-error);
@@ -670,7 +720,7 @@ input[type='submit']{
 	display: flex;
 	flex-wrap: wrap;
 }
-.qam-stats-buttons .qa-q-view-stats{
+.qam-stats-buttons .qa-voting{
 	margin-top: 8px;
 	margin-right: 10px;
 }
@@ -706,7 +756,7 @@ input[type='submit']{
 	background-color: var(--error);
 	color: var(--on-error);
 	padding: 10px;
-	margin-bottom: 10px;
+	margin: 10px 0;
 	border-radius: 4px;
 	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
 				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
@@ -720,6 +770,11 @@ input[type='submit']{
 .qa-form-wide-label{
 	font-weight: bold;
 	margin-top: 20px;
+}
+
+.qa-form-tall-image{
+	text-align: center;
+	min-height: 200px;
 }
 
 /* category */
@@ -944,8 +999,16 @@ input[type='submit']{
 .qa-part-q-list h2,
 .qa-part-ranking-users h2,
 .qa-part-ranking-tags h2,
-.qa-part-nav-list-categories h2{
+.qa-part-nav-list-categories h2,
+.qa-c-form h2,
+.qa-a-form h2{
 	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.qa-part-form-activity h2,
+.qa-part-message-list h2,
+.qa-part-form-password h2{
+	margin-bottom: 10px;
 }
 .qa-part-nav-list-categories .qa-browse-cat-item{
 	background-color: var(--surface);

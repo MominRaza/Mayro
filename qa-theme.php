@@ -141,7 +141,17 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function q_list_item($q_item)
 	{
-		$this->output('<div class="qa-q-list-item' . rtrim(' ' . @$q_item['classes']) . '" ' . @$q_item['tags'] . '>');
+		switch ( $this->template ) {
+			case 'user-questions' :
+            case 'user-answers' :
+				$this->output('<div class="qam-q-a-a qa-q-list-item' . rtrim(' ' . @$q_item['classes']) . '" ' . @$q_item['tags'] . '>');
+			break;
+            case 'user-activity' :
+				$this->output('<div class="qam-q-a-a a qa-q-list-item' . rtrim(' ' . @$q_item['classes']) . '" ' . @$q_item['tags'] . '>');
+			break;
+			default:
+				$this->output('<div class="qa-q-list-item' . rtrim(' ' . @$q_item['classes']) . '" ' . @$q_item['tags'] . '>');
+		}
 
 		$this->q_item_main($q_item);
 		$this->q_item_stats($q_item);
@@ -188,10 +198,6 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$this->output('<div class="qa-q-view-main">');
 
-		if (isset($q_view['main_form_tags'])) {
-			$this->output('<form ' . $q_view['main_form_tags'] . '>'); // form for buttons on question
-		}
-
 		$this->post_avatar_meta($q_view, 'qa-q-view');
 		$this->view_count($q_view);
 		$this->q_view_content($q_view);
@@ -200,11 +206,26 @@ class qa_html_theme extends qa_html_theme_base
 		$this->q_view_closed($q_view);
 		$this->post_tags($q_view, 'qa-q-view');
 		$this->output('<div class="qam-stats-buttons">');
-			$this->q_view_stats($q_view);
-			$this->q_view_buttons($q_view);
+			if (isset($q_view['main_form_tags'])) {
+				$this->output('<form ' . $q_view['main_form_tags'] . '>'); // // form for question voting buttons
+			}
+				$this->q_view_stats($q_view);
+			if (isset($q_view['main_form_tags'])) {
+				$this->form_hidden_elements(@$q_view['voting_form_hidden']);
+				$this->output('</form>');
+			}
+			if (isset($q_view['main_form_tags'])) {
+				$this->output('<form ' . $q_view['main_form_tags'] . '>'); // form for buttons on question
+			}
+				$this->q_view_buttons($q_view);
+			if (isset($q_view['main_form_tags'])) {
+				$this->form_hidden_elements(@$q_view['buttons_form_hidden']);
+				$this->output('</form>');
+			}
 		$this->output('</div>');
 		if (isset($q_view['main_form_tags'])) {
-			$this->form_hidden_elements(@$q_view['buttons_form_hidden']);
+			$this->form_hidden_elements(@$q_view['voting_form_hidden']);
+			// $this->form_hidden_elements(@$q_view['buttons_form_hidden']);
 			$this->output('</form>');
 		}
 
@@ -214,13 +235,47 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- END qa-q-view-main -->');
 	}
 
+	public function c_item_main($c_item)
+	{
+		if (isset($c_item['main_form_tags'])) {
+			$this->output('<form ' . $c_item['main_form_tags'] . '>'); // form for buttons on comment
+		}
+
+		$this->error(@$c_item['error']);
+
+		$this->post_avatar_meta($c_item, 'qa-c-item');
+		if (isset($c_item['expand_tags']))
+			$this->c_item_expand($c_item);
+		elseif (isset($c_item['url']))
+			$this->c_item_link($c_item);
+		else
+			$this->c_item_content($c_item);
+
+		$this->output('<div class="qa-c-item-footer">');
+		$this->c_item_buttons($c_item);
+		$this->output('</div>');
+
+		if (isset($c_item['main_form_tags'])) {
+			$this->form_hidden_elements(@$c_item['buttons_form_hidden']);
+			$this->output('</form>');
+		}
+	}
+
+	public function a_list_item($a_item)
+	{
+		$extraclass = @$a_item['classes'] . ($a_item['hidden'] ? ' qa-a-list-item-hidden' : ($a_item['selected'] ? ' qa-a-list-item-selected' : ''));
+
+		$this->output('<div class="qa-a-list-item ' . $extraclass . '" ' . @$a_item['tags'] . '>');
+
+		$this->a_item_main($a_item);
+		$this->a_item_clear();
+
+		$this->output('</div> <!-- END qa-a-list-item -->', '');
+	}
+
 	public function a_item_main($a_item)
 	{
 		$this->output('<div class="qa-a-item-main">');
-
-		if (isset($a_item['main_form_tags'])) {
-			$this->output('<form ' . $a_item['main_form_tags'] . '>'); // form for buttons on answer
-		}
 
 		$this->post_avatar_meta($a_item, 'qa-a-item');
 		
@@ -228,20 +283,41 @@ class qa_html_theme extends qa_html_theme_base
 			$this->output('<div class="qa-a-item-hidden">');
 		elseif ($a_item['selected'])
 			$this->output('<div class="qa-a-item-selected">');
-
-		$this->a_selection($a_item);
+		if (isset($a_item['main_form_tags'])) {
+			$this->output('<form ' . $a_item['main_form_tags'] . '>'); // form for buttons on answer
+		}
+			$this->a_selection($a_item);
+		if (isset($a_item['main_form_tags'])) {
+			$this->form_hidden_elements(@$a_item['buttons_form_hidden']);
+			$this->output('</form>');
+		}
 		$this->error(@$a_item['error']);
 		$this->a_item_content($a_item);
 
 		if ($a_item['hidden'] || $a_item['selected'])
 			$this->output('</div>');
 
-		$this->a_item_buttons($a_item);
+		$this->output('<div class="qam-stats-buttons">');
+			if (isset($a_item['main_form_tags'])) {
+				$this->output('<form ' . $a_item['main_form_tags'] . '>'); // form for answer voting buttons
+			}
+			$this->voting($a_item);
+			if (isset($a_item['main_form_tags'])) {
+				$this->form_hidden_elements(@$a_item['voting_form_hidden']);
+				$this->output('</form>');
+			}	
+			if (isset($a_item['main_form_tags'])) {
+				$this->output('<form ' . $a_item['main_form_tags'] . '>'); // form for buttons on answer
+			}
+			$this->a_item_buttons($a_item);
+			if (isset($a_item['main_form_tags'])) {
+				$this->form_hidden_elements(@$a_item['buttons_form_hidden']);
+				$this->output('</form>');
+			}
 
-		if (isset($a_item['main_form_tags'])) {
-			$this->form_hidden_elements(@$a_item['buttons_form_hidden']);
-			$this->output('</form>');
-		}
+		$this->output('</div>');
+
+		
 
 		$this->c_list(@$a_item['c_list'], 'qa-a-item');
 		$this->c_form(@$a_item['c_form']);
@@ -340,9 +416,9 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($tags)){
 			$this->output('<input ' . $tags . ' type="submit" value="" class="' . $class . '-button"/> ');
 			if($class == 'qa-favorite'){
-				$this->output('<i class="material-icons qa-favorite">star</i>');
+				$this->output('<i class="material-icons qa-favorite">star_border</i>');
 			}else{
-				$this->output('<i class="material-icons qa-unfavorite">star_border</i>');
+				$this->output('<i class="material-icons qa-unfavorite">star</i>');
 			}
 		}
 	}

@@ -47,7 +47,7 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
      
 3. Copy the [Mayro] folder to `qa-theme` directory of your q2a installation (eg. `qa-theme/Mayro`)
 4. Visit `http://your-q2a-site.com/admin/general` , select the `Mayro` for both the `Site theme` and `Theme for mobile`
-5. Congratulations, Donut theme is now up and running on your website :smile:
+5. Congratulations, Mayro theme is now up and running on your website :smile:
 
 ## License
 This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](https://github.com/MominRaza/Mayro) as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
