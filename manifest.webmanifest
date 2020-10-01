@@ -1,7 +1,7 @@
 {
-    "short_name": "JEE Overflow",
-    "name": "JEE Overflow: Do I need an umbrella?",
-    "description": "Weather forecast information",
+    "short_name": "Mayro",
+    "name": "Mayro: Google Material Design Theme",
+    "description": "Google Material Design Theme for Question2Answer (Q2A).",
     "icons": [
       {
         "src": "/images/icons-192.png",
@@ -14,9 +14,9 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "/jee%20Overflow/",
+    "start_url": "/",
     "background_color": "#EEEEEE",
     "display": "standalone",
-    "scope": "/jee%20Overflow/",
+    "scope": "/",
     "theme_color": "#673ab7"
   }
