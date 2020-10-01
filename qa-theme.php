@@ -13,6 +13,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function head_css()
 	{
 		$this->content['css_src'][] = $this->rooturl . 'icons/material-icons.css';
+		$this->output('<link rel="manifest" href="'. $this->rooturl .'manifest.webmanifest">');
 		parent::head_css();
 	}
 
@@ -104,7 +105,8 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function nav_main_sub()
 	{
-		$this->output('<div id="qa-nav-main">');
+		$this->output('<div id="qa-nav-main" onclick="toggleMenu()">');
+		$this->logo();
 		$this->nav('main');
 		$this->output('</div>');
 		$this->nav('sub');

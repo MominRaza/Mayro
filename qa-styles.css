@@ -253,8 +253,45 @@ input[type='submit']{
 	width: 300px;
 	height: 100vh;
 	background-color: var(--surface);
-	box-shadow: 1px 0 10px lightgray;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 3px 0px rgba(0,0,0,.12);
 	overflow: hidden;
+}
+#qa-nav-main .qa-logo{
+	display: none;
+}
+@media(max-width: 1023px){
+	.qa-nav-main{
+		top: 0;
+		box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+					0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+					0px 9px 46px 8px rgba(0,0,0,.12);
+		padding-top: 56px;
+	}
+	.menu-active #qa-nav-main{
+		z-index: 2;
+		background-color: rgba(0,0,0,.32);
+		position: fixed;
+		height: 100vh;
+		width: 100%;
+	}
+	.menu-active #qa-nav-main .qa-logo{
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: unset;
+		height: 56px;
+		padding-top: 13px;
+		background-color: unset;
+		box-shadow: unset;
+		z-index: 3;
+	}
+	.menu-active #qa-nav-main .qa-logo .qa-logo-link{
+		color: var(--on-surface);
+		margin-left: 16px;
+	}
 }
 .menu-active .qa-nav-main{
 	display: block;
