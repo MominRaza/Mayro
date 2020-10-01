@@ -16,6 +16,7 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 <img src="/images/9.png" width="200" alt="Tags"/>
 <img src="/images/10.png" width="200" alt="Users"/>
 </p>
+
 ## Features
 
 * Mobile first, clean content focused, responsive layout designed for redability
