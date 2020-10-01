@@ -9,7 +9,11 @@ function toggleMenu() {
 function toggleSearch() {
     var search = document.getElementById('search-toggle');
     search.classList.toggle('active');
-    search.innerText = search.innerText == 'search' ? 'arrow_back' : 'search';
+    if (x.matches) { // If media query matches
+        search.innerText = search.innerText == 'search' ? 'arrow_back' : 'search';
+    }else{
+        search.innerText = search.innerText == 'search' ? 'close' : 'search';
+    }
     var searchBox = document.getElementById('qa-search');
     searchBox.classList.toggle('active');
 }

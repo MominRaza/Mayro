@@ -24,7 +24,21 @@ class qa_html_theme extends qa_html_theme_base
 		parent::head_script();
 	}
 
-	
+	// Adding point count for logged in user
+
+	public function logged_in()
+	{
+		parent::logged_in();
+		if (qa_is_logged_in()) {
+			$userpoints = qa_get_logged_in_points();
+			$pointshtml = $userpoints == 1
+				? qa_lang_html_sub('main/1_point', '1', '1')
+				: qa_html(qa_format_number($userpoints))
+			;
+			$this->output('<div class="qam-logged-in-points">' . $pointshtml . '</div>');
+		}
+	}
+
 	public function body_content()
 	{
 		$this->body_prefix();
@@ -37,7 +51,16 @@ class qa_html_theme extends qa_html_theme_base
 		$this->header();
 		$this->widgets('full', 'high');
 
-		$this->output('<div class="qam-main-sidepanel">');
+		switch ( $this->template ) {
+			case 'user-wall' :
+            case 'messages' :
+			case 'message' :
+				$this->output('<div class="qam-main-sidepanel qam-user-wall-message">');
+			break;
+			default:
+				$this->output('<div class="qam-main-sidepanel">');
+		}
+
 		$this->main();
 		$this->sidepanel();
 		$this->output('</div>');
@@ -71,7 +94,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function nav_user_search()
 	{
 		$this->qam_user_account();
-		$this->output('<div id="qa-nav-user">');
+		$this->output('<div id="qa-nav-user" onclick="toggleUser()">');
 		$this->nav('user');
 		$this->output('</div>');
 		$this->output('<div id="qa-search">');
@@ -163,7 +186,6 @@ class qa_html_theme extends qa_html_theme_base
 	public function q_item_main($q_item)
 	{
 		$this->output('<div class="qa-q-item-main">');
-		$this->view_count($q_item);
 		$this->post_avatar_meta($q_item, 'qa-q-item');
 		$this->q_item_title($q_item);
 		$this->q_item_content($q_item);
@@ -172,6 +194,18 @@ class qa_html_theme extends qa_html_theme_base
 
 		$this->output('</div>');
 	}
+
+	public function q_item_stats($q_item)
+	{
+		$this->output('<div class="qa-q-item-stats">');
+
+		$this->voting($q_item);
+		$this->view_count($q_item);
+		$this->a_count($q_item);
+
+		$this->output('</div>');
+	}
+
 	public function post_avatar_meta($post, $class, $avatarprefix = null, $metaprefix = null, $metaseparator = '<br/>')
 	{
 		$this->output('<div class="qam-q-post-meta">');
@@ -199,7 +233,6 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<div class="qa-q-view-main">');
 
 		$this->post_avatar_meta($q_view, 'qa-q-view');
-		$this->view_count($q_view);
 		$this->q_view_content($q_view);
 		$this->q_view_extra($q_view);
 		$this->q_view_follows($q_view);
@@ -214,6 +247,7 @@ class qa_html_theme extends qa_html_theme_base
 				$this->form_hidden_elements(@$q_view['voting_form_hidden']);
 				$this->output('</form>');
 			}
+		$this->view_count($q_view);
 			if (isset($q_view['main_form_tags'])) {
 				$this->output('<form ' . $q_view['main_form_tags'] . '>'); // form for buttons on question
 			}
@@ -382,9 +416,9 @@ class qa_html_theme extends qa_html_theme_base
 				$this->output('<i class="material-icons up_only">thumb_up_alt</i>');
 				$this->output_split($post['upvotes_view'], 'enabled qa-upvote-count');
 
-				$this->post_disabled_button($post, 'vote_down_tags', '', 'qa-vote-second-button qa-vote-down');
-				$this->output('<i class="material-icons up_only">thumb_down_alt</i>');
-				$this->output_split($post['downvotes_view'], 'disabled qa-downvote-count');
+				// $this->post_disabled_button($post, 'vote_down_tags', '', 'qa-vote-second-button qa-vote-down');
+				// $this->output('<i class="material-icons up_only">thumb_down_alt</i>');
+				// $this->output_split($post['downvotes_view'], 'disabled qa-downvote-count');
 				break;
 
 			case 'enabled':
