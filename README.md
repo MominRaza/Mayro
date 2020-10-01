@@ -9,9 +9,9 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 <img src="/images/8.png" width="200" alt="Recent Activity"/>
 </p>
 <p float="left">
-<img src="/images/2.png" width="200" alt="Home Tablet"/>
-<img src="/images/3.png" width="200" alt="Home Small Laptop"/>
-<img src="/images/4.png" width="200" alt="Home Laptop"/>
+<img src="/images/2.png" width="400" alt="Home Tablet"/>
+<img src="/images/3.png" width="400" alt="Home Small Laptop"/>
+<img src="/images/4.png" width="400" alt="Home Laptop"/>
 </p>
 <p float="left">
 <img src="/images/5.png" width="200" alt="Question View"/>
