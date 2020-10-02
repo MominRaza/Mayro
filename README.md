@@ -6,17 +6,17 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 ## Screenshots
 
 <p float="left">
-<img src="/images/0.png" width="200" alt="Navigation Drawer"/>
-<img src="/images/1.png" width="200" alt="Home Mobile"/>
-<img src="/images/8.png" width="200" alt="Recent Activity"/>
-<img src="/images/2.png" width="600" alt="Home Tablet"/>
-<img src="/images/3.png" width="600" alt="Home Small Laptop"/>
-<img src="/images/4.png" width="600" alt="Home Laptop"/>
-<img src="/images/5.png" width="200" alt="Question View"/>
-<img src="/images/6.png" width="200" alt="Ask A Question"/>
-<img src="/images/7.png" width="200" alt="Categories"/>
-<img src="/images/9.png" width="200" alt="Tags"/>
-<img src="/images/10.png" width="200" alt="Users"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/0.png" width="200" alt="Navigation Drawer"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/1.png" width="200" alt="Home Mobile"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/8.png" width="200" alt="Recent Activity"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/2.png" width="600" alt="Home Tablet"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/3.png" width="600" alt="Home Small Laptop"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/4.png" width="600" alt="Home Laptop"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/5.png" width="200" alt="Question View"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/6.png" width="200" alt="Ask A Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/7.png" width="200" alt="Categories"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/9.png" width="200" alt="Tags"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/10.png" width="200" alt="Users"/>
 </p>
 
 
