@@ -2,7 +2,9 @@
 
 Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2answer.org/).
 
+
 ## Screenshots
+
 <p float="left">
 <img src="/images/0.png" width="200" alt="Navigation Drawer"/>
 <img src="/images/1.png" width="200" alt="Home Mobile"/>
@@ -17,6 +19,7 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 <img src="/images/10.png" width="200" alt="Users"/>
 </p>
 
+
 ## Features
 
 * Mobile first, clean content focused, responsive layout designed for redability
@@ -25,6 +28,7 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 * Better integration with the [Open login plugin](https://github.com/alixandru/q2a-open-login)
 * Developer friendly
 * Multilingual support
+
 
 ## Installation
 
@@ -44,6 +48,7 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 4. Visit `http://your-q2a-site.com/admin/general` , select the `Mayro` for both the `Site theme` and `Theme for mobile`
 5. Congratulations, Mayro theme is now up and running on your website :smile:
 
+
 ## Recommended Settings
 
 ### Admin/Users
@@ -58,13 +63,34 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 - Columns on Tags page: 1
 - Columns on Users page: 1
 
+
+## Manifest File Setup for PWA
+
+- Edit `manifest.webmanifest` file as your requirements.
+- Add two `images/icons-192.png` and `images/icons-192.png` to your website root directory (eg. `http://your-q2a-site.com/images/icons-192.png`).
+- For more info https://web.dev/add-manifest/
+
+## Author
+
+This free theme is created with :heart: by [Momin Raza](https://github.com/MominRaza)
+
+### Give Me A Treat
+
+<a href="https://www.buymeacoffee.com/mominraza" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
+
+
 ## License
+
 This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](https://github.com/MominRaza/Mayro) as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
+
 ## Disclaimer
+
 This code has not been extensively tested on high-traffic installations of Q2A. You should perform your own tests before using this plugin on a live (production) environment. 
 
+
 ## About Question2Answer
+
 **Question2Answer** is a free and open source PHP and MySQL based platform for creating Question & Answer sites. For more information visit Q2A's official site at [question2answer.org](http://www.question2answer.org/)
 
   [Question2Answer]: http://www.question2answer.org/
