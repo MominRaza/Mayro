@@ -463,5 +463,19 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$this->output('<input type="text" ' .'placeholder="' . $search['button_label'] . '..." ' . $search['field_tags'] . ' value="' . @$search['value'] . '" class="qa-search-field"/>');
 	}
+
+	/**
+	 * Mayro Theme attribution.
+	 * I'd really appreciate you displaying this link on your Q2A site. Thank you - Momin Raza
+	 */
+	public function attribution()
+	{
+		$this->output(
+			'<div class="qa-attribution">',
+			'<a href="https://github.com/MominRaza/Mayro">Mayro Theme</a> <i class="material-icons md-18" title="Developed">code</i> with <i class="material-icons md-18" title="Love">favorite</i> by <a href="https://github.com/MominRaza">Momin Raza</a>',
+			'</div>'
+		);
+		parent::attribution();
+	}
 }
 ?>

@@ -14,6 +14,7 @@
 	/* --primary: #673ab7; */
 	--primary-rgb: 103, 58, 183;
 	--primary: rgb(var(--primary-rgb));
+	/* primary dark used in manifest file as theme_color */
 	--primary-dark: #320b86;
 	--primary-light: #9a67ea;
     --secondary: #ffab91;
@@ -734,6 +735,28 @@ input[type='submit']{
 .qa-footer{
 	margin-top: 20px;
 	padding: 10px;
+}
+.qa-nav-footer-list{
+	display: flex;
+	list-style: none;
+}
+.qa-nav-footer-item{
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.qa-attribution{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+@media(min-width:768px){
+	.qa-attribution{
+		margin-bottom: 10px;
+	}	
+	.qa-attribution:nth-child(3){
+		padding-left: 10px;
+		border-left: 1px solid var(--on-surface);
+	}
 }
 
 /* form */
