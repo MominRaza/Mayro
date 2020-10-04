@@ -11,17 +11,36 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 
 ## Screenshots
 
+### Pixle 2 XL
 <p float="left">
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/app drawer.png" width="300" alt="App Drawer"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/search.png" width="300" alt="Search"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/questions.png" width="300" alt="Questions"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/question.png" width="300" alt="Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/landscape.png" width="600" alt="Landscape"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/ask a question.png" width="300" alt="Ask A Question"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user toggle.png" width="300" alt="User Toggle"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/categories.png" width="300" alt="Categories"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/users.png" width="300" alt="Users"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user.png" width="300" alt="User"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/login.png" width="300" alt="Login"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/admin.png" width="300" alt="Admin"/>
+</p>
+
+### iPad
+<p float="left">
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/hot(iPad).png" width="600" alt="Hot"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/question(iPad).png" width="600" alt="Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/users(iPad).png" width="600" alt="Users"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/register(iPad).png" width="600" alt="Register"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/tags(iPad).png" width="600" alt="Tags"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/admin(iPad).png" width="600" alt="Admin"/>
+</p>
+
+### iPad Pro
+<p float="left">
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/ask(iPad Pro).png" width="300" alt="Ask A Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user(iPad Pro).png" width="300" alt="User"/>
 </p>
 
 

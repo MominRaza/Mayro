@@ -1016,7 +1016,8 @@ select{
 /* user */
 .qa-form-wide-label{
 	font-weight: bold;
-	margin-top: 20px;
+    display: block;
+    margin-right: 10px;
 }
 
 .qa-form-tall-image{
@@ -1374,7 +1375,7 @@ select{
 /* login register */
 .qam-login-register .qa-main{
 	max-width: 400px;
-	min-height: 70vh;
+	min-height: 75vh;
 	margin: 10px auto;
 }
 .qam-login-register .qa-sidepanel{
