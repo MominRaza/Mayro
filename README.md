@@ -22,11 +22,6 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/users.png" width="300" alt="Users"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user.png" width="300" alt="User"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/admin.png" width="300" alt="Admin"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/8.png" width="200" alt="Recent Activity"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/2.png" width="600" alt="Home Tablet"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/3.png" width="600" alt="Home Small Laptop"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/4.png" width="600" alt="Home Laptop"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/9.png" width="200" alt="Tags"/>
 </p>
 
 
@@ -86,7 +81,7 @@ This free theme is created with :heart: by [Momin Raza](https://github.com/Momin
 
 ### Give Me A Treat
 
-<a href="https://www.buymeacoffee.com/mominraza" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
+<a href="https://paypal.me/mominr082" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
 
 
 ## License
