@@ -1,15 +1,20 @@
 /*
     Theme URI: https://github.com/MominRaza/Mayro
-	Theme Version: 1.1
-    Theme Date: 2020-10-02
+	Theme Version: 1.2
+    Theme Date: 2020-10-4
     Theme Author: Momin Raza
     Theme Author URI: https://github.com/MominRaza
-    Theme License: _Short name of plugin license, e.g. GPLv2/3_
+    Theme License: GPLv3
     Theme Update Check URI: https://github.com/MominRaza/Mayro/releases
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
+/* color variables 
+	you can change primary-rgb, primary-dark, primary-light, on-primary,
+	secondary, secondary-dark, secondary-light, on-secondary colors only.
+	find them from here https://material.io/resources/color
+*/
 :root{
 	/* --primary: #673ab7; */
 	--primary-rgb: 103, 58, 183;
@@ -23,7 +28,7 @@
 
     --background: #EEEEEE;
     --surface: #FFFFFF;
-	--error: #d50000;
+	--error: #B00020;
 
 	--on-primary: #FFFFFF;
 	--on-secondary: #000000;
@@ -75,9 +80,6 @@ input[type='submit']{
 	width: 100%;
 	height: 56px;
 	padding-top: 13px;
-	/* Mobile Landscape: 48dp
-	Mobile Portrait: 56dp
-	Tablet/Desktop: 64dp */
 	background-color: var(--primary);
 	box-shadow: 0 2px 3px gray;
     z-index: 1;
@@ -218,6 +220,10 @@ input[type='submit']{
 	width: calc(100% - 99px) !important;
 	background-color: unset;
 	font-size: 20px;
+	color: var(--on-primary);
+}
+.qa-search-field::placeholder{
+	color: #9E9E9E;
 }
 .qa-search-button{
 	width: 30px;
@@ -238,12 +244,13 @@ input[type='submit']{
 		background-color: var(--surface);
 		margin-left: 0;
 		padding-bottom: 7px !important;
+		color: var(--on-surface);
 	}
 	#search-toggle.active{
 		left: unset;
 		top: 28px;
 		right: 105px;
-		color: var(--on-surface);
+		color: #9E9E9E;
 	}
 }
 .qa-nav-main{
@@ -258,6 +265,7 @@ input[type='submit']{
 				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 				0px 1px 3px 0px rgba(0,0,0,.12);
 	overflow: hidden;
+	overflow-y: auto;
 }
 #qa-nav-main .qa-logo{
 	display: none;
@@ -282,10 +290,10 @@ input[type='submit']{
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: unset;
+		width: 300px;
 		height: 56px;
 		padding-top: 13px;
-		background-color: unset;
+		background-color: var(--surface);
 		box-shadow: unset;
 		z-index: 3;
 	}
@@ -330,13 +338,14 @@ input[type='submit']{
 }
 .qa-nav-main- .qa-nav-main-link::before{content: "home";}
 .qa-nav-main-activity .qa-nav-main-link::before{content: "bar_chart";}
+.qa-nav-main-qa .qa-nav-main-link::before{content: "question_answer";}
 .qa-nav-main-questions .qa-nav-main-link::before{content: "chat";}
 .qa-nav-main-hot .qa-nav-main-link::before{content: "local_fire_department";}
 .qa-nav-main-unanswered .qa-nav-main-link::before{content: "speaker_notes_off";}
 .qa-nav-main-tag .qa-nav-main-link::before{content: "local_offer";}
 .qa-nav-main-categories .qa-nav-main-link::before{content: "category";}
 .qa-nav-main-user .qa-nav-main-link::before{content: "groups";}
-.qa-nav-main-ask .qa-nav-main-link::before{content: "question_answer";}
+.qa-nav-main-ask .qa-nav-main-link::before{content: "live_help";}
 .qa-nav-main-admin .qa-nav-main-link::before{content: "admin_panel_settings";}
 .qa-nav-main-custom-3 .qa-nav-main-link::before{content: "admin_panel_settings";}
 
@@ -380,19 +389,29 @@ input[type='submit']{
 	z-index: 1;
 }
 .qa-nav-sub-list::-webkit-scrollbar,
-.qa-q-item-tag-list::-webkit-scrollbar{
+.qa-q-item-tag-list::-webkit-scrollbar,
+.qa-nav-main::-webkit-scrollbar{
 	display: none;
 }
-@media(min-width:768px){
+
+/* no need of scrollbar becouse of touch screens, precision touchpad and mouse. */
+
+/* @media(min-width:768px){
 	.qa-nav-sub-list::-webkit-scrollbar,
 	.qa-q-item-tag-list::-webkit-scrollbar{
+		display: block;
 		height: 3px;
 	}
+	.qa-nav-main::-webkit-scrollbar{
+		display: block;
+		width: 3px;
+	}
 	.qa-nav-sub-list::-webkit-scrollbar-thumb,
-	.qa-q-item-tag-list::-webkit-scrollbar-thumb{
+	.qa-q-item-tag-list::-webkit-scrollbar-thumb,
+	.qa-nav-main::-webkit-scrollbar-thumb{
 		background-color: var(--secondary-light);
 	}
-}
+} */
 .qa-nav-sub-item{
 	min-width: max-content;
 	padding: 10px 0 13px 0;
@@ -422,6 +441,33 @@ input[type='submit']{
 	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
 				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 				0px 1px 3px 0px rgba(0,0,0,.12);
+}
+.qa-part-form,
+.qa-part-form-2 form,
+.qam-admin-plugins .qa-form-tall-table{
+	margin: 10px 0;
+	background-color: var(--surface);
+	padding: 4px 16px 16px 16px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 3px 0px rgba(0,0,0,.12);
+}
+.qa-part-form-plugin-options{
+	margin: 0 8px 20px;
+}
+.qa-part-form-plugin-options .qa-form-tall-table{
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.qam-admin-plugins .qa-part-form{
+	background-color: unset;
+	box-shadow: unset;
+	padding: unset;
+}
+@media(max-width: 768px){
+	.qa-main{
+		margin-bottom: 40px;
+	}
 }
 @media(min-width:1024px){
 	.qa-part-form-profile{
@@ -523,7 +569,8 @@ input[type='submit']{
 	.menu-active .qam-main-sidepanel{
 		margin-left: 300px;
 	}
-	.menu-active .qa-footer{
+	.menu-active .qa-footer,
+	.menu-active .qa-widgets-full{
 		margin-left: 300px;
 	}
 }
@@ -548,10 +595,12 @@ input[type='submit']{
 	.menu-active .qam-main-sidepanel{
 		margin-left: 0;
 	}
-	.qa-footer{
+	.qa-footer,
+	.qa-widgets-full{
 		margin-left: 300px;
 	}
-	.menu-active .qa-footer{
+	.menu-active .qa-footer,
+	.menu-active .qa-widgets-full{
 		margin-left: 0;
 	}
 	.qa-main{
@@ -768,13 +817,27 @@ input[type='submit']{
 	border-spacing: 0;
 }
 .qa-form-wide-table td{
-	padding: 5px 0;
+	padding: 10px 0 5px 0;
 }
 .qa-form-tall-label{
 	padding-top: 20px;
 }
+.qa-form-tall-ok{
+	background-color: var(--primary-dark);
+	color: var(--on-primary);
+	margin-top: 10px;
+	display: block;
+	padding: 8px 16px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 3px 0px rgba(0,0,0,.12);
+}
 .qa-form-tall-data{
 	padding-top: 10px;
+}
+.qa-form-tall-note{
+	margin-top: 5px;
 }
 .qa-form-tall-buttons{
 	padding-top: 10px;
@@ -814,7 +877,8 @@ input[type='submit']{
 .qa-form-tall-button-comment,
 .qa-form-tall-button-answer,
 .qa-form-light-button-answer,
-.qa-form-light-button-follow{
+.qa-form-light-button-follow,
+.qa-form-tall-button-send{
 	margin-top: 10px;
 	background-color: var(--primary-dark);
 	color: var(--on-primary);
@@ -901,14 +965,35 @@ input[type='submit']{
 	color: var(--primary-dark);
 	font-size: 40px;
 }
-
+/* post content */
 .qa-post-content{
 	padding: 10px 0;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	font-size: 1.2em;
+}
+.qa-post-content p{
+	padding-bottom: 5px;
 }
 .qa-post-content img{
 	max-width: 100%;
+	height: auto !important;
+}
+.qa-post-content li{
+	margin-left: 20px;
+}
+.qa-post-content blockquote{
+	background-color: rgba(var(--primary-rgb), .12);
+	padding: 5px;
+	padding-left: 20px;
+	border-left: 5px solid var(--primary-light);
+}
+
+/* related question */
+.qa-c-item-link{
+	display: block;
+	padding: 10px 0;
+	line-height: 1.4em;
+	font-size: 1.2em;
 }
 /* error */
 .qa-error{
@@ -949,9 +1034,7 @@ input[type='submit']{
 .qa-browse-cat-item, .qa-nav-cat-item{
 	padding: 10px;
 	margin: 5px 0;
-	/* margin-left: 20px; */
 	background-color: var(--surface);
-	/* padding: 16px 16px 0 16px; */
 	border-radius: 4px;
 	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
 				0px 1px 1px 0px rgba(0, 0, 0, 0.14),
@@ -1173,10 +1256,13 @@ input[type='submit']{
 .qa-part-q-list h2,
 .qa-part-ranking-users h2,
 .qa-part-ranking-tags h2,
-.qa-part-nav-list-categories h2,
+.qa-part-nav-list-categories h2{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
 .qa-c-form h2,
 .qa-a-form h2{
-	margin-top: 20px;
+	padding-top: 76px;
 	margin-bottom: 10px;
 }
 .qa-part-form-activity h2,
@@ -1282,3 +1368,17 @@ input[type='submit']{
 	color: var(--error);
 }
 
+/* login register */
+.qam-login-register .qa-main{
+	max-width: 400px;
+	min-height: 70vh;
+	margin: 10px auto;
+}
+.qam-login-register .qa-sidepanel{
+	display: none;
+}
+
+/* widgets */
+.qa-ask-box input{
+	width: 100% !important;
+}
