@@ -39,8 +39,8 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 
 ### iPad Pro
 <p float="left">
-<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/ask(iPad Pro).png" width="300" alt="Ask A Question"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user(iPad Pro).png" width="300" alt="User"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/ask(iPad Pro).png" width="700" alt="Ask A Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user(iPad Pro).png" width="700" alt="User"/>
 </p>
 
 
