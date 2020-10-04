@@ -26,7 +26,6 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	// Adding point count for logged in user
-
 	public function logged_in()
 	{
 		parent::logged_in();
@@ -57,6 +56,22 @@ class qa_html_theme extends qa_html_theme_base
             case 'messages' :
 			case 'message' :
 				$this->output('<div class="qam-main-sidepanel qam-user-wall-message">');
+			break;
+			case 'admin' :
+				$type = qa_request_part( 1 );
+				switch ( $type ) {
+					case 'plugins' :
+						$this->output('<div class="qam-main-sidepanel qam-admin-plugins">');
+						break;
+					default :
+						$this->output('<div class="qam-main-sidepanel">');
+						break;
+				}
+			break;
+			case 'login' :
+			case 'register' :
+			case 'forgot' :
+				$this->output('<div class="qam-main-sidepanel qam-login-register">');
 			break;
 			default:
 				$this->output('<div class="qam-main-sidepanel">');
@@ -244,26 +259,21 @@ class qa_html_theme extends qa_html_theme_base
 			if (isset($q_view['main_form_tags'])) {
 				$this->output('<form ' . $q_view['main_form_tags'] . '>'); // // form for question voting buttons
 			}
-				$this->q_view_stats($q_view);
+			$this->q_view_stats($q_view);
 			if (isset($q_view['main_form_tags'])) {
 				$this->form_hidden_elements(@$q_view['voting_form_hidden']);
 				$this->output('</form>');
 			}
-		$this->view_count($q_view);
+			$this->view_count($q_view);
 			if (isset($q_view['main_form_tags'])) {
 				$this->output('<form ' . $q_view['main_form_tags'] . '>'); // form for buttons on question
 			}
-				$this->q_view_buttons($q_view);
+			$this->q_view_buttons($q_view);
 			if (isset($q_view['main_form_tags'])) {
 				$this->form_hidden_elements(@$q_view['buttons_form_hidden']);
 				$this->output('</form>');
 			}
 		$this->output('</div>');
-		if (isset($q_view['main_form_tags'])) {
-			$this->form_hidden_elements(@$q_view['voting_form_hidden']);
-			// $this->form_hidden_elements(@$q_view['buttons_form_hidden']);
-			$this->output('</form>');
-		}
 
 		$this->c_list(@$q_view['c_list'], 'qa-q-view');
 		$this->c_form(@$q_view['c_form']);
@@ -271,12 +281,20 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- END qa-q-view-main -->');
 	}
 
+	public function c_list_item($c_item)
+	{
+		$extraclass = @$c_item['classes'] . (@$c_item['hidden'] ? ' qa-c-item-hidden' : '');
+
+		$this->output('<div class="qa-c-list-item ' . $extraclass . '" ' . @$c_item['tags'] . '>');
+
+		$this->c_item_main($c_item);
+		$this->c_item_clear();
+
+		$this->output('</div> <!-- END qa-c-item -->');
+	}
+
 	public function c_item_main($c_item)
 	{
-		if (isset($c_item['main_form_tags'])) {
-			$this->output('<form ' . $c_item['main_form_tags'] . '>'); // form for buttons on comment
-		}
-
 		$this->error(@$c_item['error']);
 
 		$this->post_avatar_meta($c_item, 'qa-c-item');
@@ -286,15 +304,24 @@ class qa_html_theme extends qa_html_theme_base
 			$this->c_item_link($c_item);
 		else
 			$this->c_item_content($c_item);
-
-		$this->output('<div class="qa-c-item-footer">');
-		$this->c_item_buttons($c_item);
+		
+		$this->output('<div class="qam-stats-buttons">');
+			if (isset($c_item['vote_view']) && isset($c_item['main_form_tags'])) {
+				// form for comment voting buttons
+				$this->output('<form ' . $c_item['main_form_tags'] . '>');
+				$this->voting($c_item);
+				$this->form_hidden_elements(@$c_item['voting_form_hidden']);
+				$this->output('</form>');
+			}
+			if (isset($c_item['main_form_tags'])) {
+				$this->output('<form ' . $c_item['main_form_tags'] . '>'); // form for buttons on comment
+			}
+			$this->c_item_buttons($c_item);
+			if (isset($c_item['main_form_tags'])) {
+				$this->form_hidden_elements(@$c_item['buttons_form_hidden']);
+				$this->output('</form>');
+			}
 		$this->output('</div>');
-
-		if (isset($c_item['main_form_tags'])) {
-			$this->form_hidden_elements(@$c_item['buttons_form_hidden']);
-			$this->output('</form>');
-		}
 	}
 
 	public function a_list_item($a_item)
@@ -417,10 +444,6 @@ class qa_html_theme extends qa_html_theme_base
 				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
 				$this->output('<i class="material-icons up_only">thumb_up_alt</i>');
 				$this->output_split($post['upvotes_view'], 'enabled qa-upvote-count');
-
-				// $this->post_disabled_button($post, 'vote_down_tags', '', 'qa-vote-second-button qa-vote-down');
-				// $this->output('<i class="material-icons up_only">thumb_down_alt</i>');
-				// $this->output_split($post['downvotes_view'], 'disabled qa-downvote-count');
 				break;
 
 			case 'enabled':
