@@ -408,6 +408,16 @@ class qa_html_theme extends qa_html_theme_base
 
 		$this->output('</div>');
 	}
+	
+	// changed post_avatar_meta and message_content order
+	public function message_item($message)
+	{
+		$this->output('<div class="qa-message-item" ' . @$message['tags'] . '>');
+		$this->post_avatar_meta($message, 'qa-message');
+		$this->message_content($message);
+		$this->message_buttons($message);
+		$this->output('</div> <!-- END qa-message-item -->', '');
+	}
 
 	public function voting_inner_html($post)
 	{

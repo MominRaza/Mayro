@@ -974,14 +974,14 @@ select{
 	line-height: 1.5em;
 	font-size: 1.2em;
 }
-.qa-post-content p{
+.qa-post-content p, .qa-part-custom p{
 	padding-bottom: 5px;
 }
 .qa-post-content img{
 	max-width: 100%;
 	height: auto !important;
 }
-.qa-post-content li{
+.qa-post-content li, .qa-part-custom li{
 	margin-left: 20px;
 }
 .qa-post-content blockquote{
@@ -1110,7 +1110,7 @@ select{
 	margin: -10px 0 -10px -10px;
 	padding: 10px 0 10px 10px;
 	border-radius: 4px 0 0 4px;
-	min-width: 60px;
+	min-width: 50px;
 	background-color: var(--primary-light);
 	color: var(--on-primary);
 }
@@ -1384,4 +1384,17 @@ select{
 /* widgets */
 .qa-ask-box input{
 	width: 100% !important;
+}
+.qa-related-qs .qa-related-q-list{
+	/* margin-left: 20px; */
+	/* margin-top: 10px; */
+	list-style: none;
+}
+.qa-related-qs .qa-related-q-item{
+	padding: 8px 0;
+	display: block;
+	border-bottom: 0.1px solid var(--on-surface);
+}
+.qa-related-qs .qa-related-q-item:last-child{
+	border-bottom: none;
 }
