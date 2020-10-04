@@ -1,22 +1,32 @@
 # Mayro
 
+[![Release](https://img.shields.io/badge/release-v1.2-blue.svg?style=flat)](https://github.com/MominRaza/Mayro/releases)
+[![Q2A](https://img.shields.io/badge/Question2Answer-v1.8.5-blue.svg?style=flat)](https://github.com/MominRaza/Mayro/releases)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/MominRaza/Mayro/issues)
+[![License](https://img.shields.io/badge/License-GPL-green.svg?style=flat)](https://github.com/MominRaza/Mayro/blob/master/LICENSE)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/mominr082)
+
 Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2answer.org/).
 
 
 ## Screenshots
 
 <p float="left">
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/0.png" width="200" alt="Navigation Drawer"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/1.png" width="200" alt="Home Mobile"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/app drawer.png" width="300" alt="App Drawer"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/search.png" width="300" alt="Search"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/questions.png" width="300" alt="Questions"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/question.png" width="300" alt="Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/ask a question.png" width="300" alt="Ask A Question"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user toggle.png" width="300" alt="User Toggle"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/categories.png" width="300" alt="Categories"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/users.png" width="300" alt="Users"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user.png" width="300" alt="User"/>
+<img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/admin.png" width="300" alt="Admin"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/8.png" width="200" alt="Recent Activity"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/2.png" width="600" alt="Home Tablet"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/3.png" width="600" alt="Home Small Laptop"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/4.png" width="600" alt="Home Laptop"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/5.png" width="200" alt="Question View"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/6.png" width="200" alt="Ask A Question"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/7.png" width="200" alt="Categories"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/9.png" width="200" alt="Tags"/>
-<img src="https://raw.githubusercontent.com/MominRaza/assets/main/images/10.png" width="200" alt="Users"/>
 </p>
 
 
