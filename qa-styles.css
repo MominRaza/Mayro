@@ -68,6 +68,9 @@ input[type='checkbox'], input[type='radio']{
 input[type='submit']{
 	width: auto;
 }
+select{
+	margin-top: 10px;
+}
 
 /* header */
 .qa-header-clear{
