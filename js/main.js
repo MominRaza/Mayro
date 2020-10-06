@@ -11,7 +11,7 @@ function toggleSearch() {
     search.classList.toggle('active');
     if (x.matches) { // If media query matches
         search.innerText = search.innerText == 'search' ? 'arrow_back' : 'search';
-    }else{
+    } else {
         search.innerText = search.innerText == 'search' ? 'close' : 'search';
     }
     var searchBox = document.getElementById('qa-search');
