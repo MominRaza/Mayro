@@ -1,7 +1,7 @@
 # Mayro
 
 [![Release](https://img.shields.io/badge/release-v1.2-blue.svg?style=flat)](https://github.com/MominRaza/Mayro/releases)
-[![Q2A](https://img.shields.io/badge/Question2Answer-v1.8.5-blue.svg?style=flat)](https://github.com/MominRaza/Mayro/releases)
+[![Q2A](https://img.shields.io/badge/Question2Answer-v1.8.5-blue.svg?style=flat)](https://github.com/q2a/question2answer/releases)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/MominRaza/Mayro/issues)
 [![License](https://img.shields.io/badge/License-GPL-green.svg?style=flat)](https://github.com/MominRaza/Mayro/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/mominr082)
@@ -48,8 +48,6 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 
 * Mobile first, clean content focused, responsive layout designed for redability
 * Easy to install and setup
-* Better integration with the [Onsite notifications plugin](https://github.com/q2apro/q2apro-on-site-notifications/) 
-* Better integration with the [Open login plugin](https://github.com/alixandru/q2a-open-login)
 * Developer friendly
 * Multilingual support
 
@@ -87,12 +85,6 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 - Columns on Tags page: 1
 - Columns on Users page: 1
 
-
-## Manifest File Setup for PWA
-
-- Edit `manifest.webmanifest` file as your requirements.
-- Add two `images/icons-192.png` and `images/icons-192.png` to your website root directory (eg. `http://your-q2a-site.com/images/icons-192.png`).
-- For more info https://web.dev/add-manifest/
 
 ## Author
 
