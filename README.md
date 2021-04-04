@@ -9,6 +9,16 @@
 Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2answer.org/).
 
 
+## Features
+
+* Mobile first, clean content focused, responsive layout designed for redability
+* Easy to install and setup
+* Developer friendly
+
+## Paid Features
+For Dark Theme, Right to Left(RTL), Progressive Web App(PWA), Nice Animations, Multilingual support Buy [Mayro Pro Theme](https://github.com/MominRaza/assets/blob/main/MayroPro.md). 
+
+
 ## Screenshots
 
 ### Pixle 2 XL
@@ -42,14 +52,6 @@ Google Material Design Theme for [Question2Answer ( Q2A )](https://www.question2
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/ask(iPad Pro).png" width="700" alt="Ask A Question"/>
 <img src="https://raw.githubusercontent.com/MominRaza/assets/master/images/user(iPad Pro).png" width="700" alt="User"/>
 </p>
-
-
-## Features
-
-* Mobile first, clean content focused, responsive layout designed for redability
-* Easy to install and setup
-* Developer friendly
-* Multilingual support
 
 
 ## Installation
