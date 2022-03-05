@@ -1,5 +1,7 @@
 # Mayro
 
+## Now Mayrp Pro theme is free and open source so I am archiving this repository
+
 [![Release](https://img.shields.io/badge/release-v1.3-blue.svg?style=flat)](https://github.com/MominRaza/Mayro/releases)
 [![Q2A](https://img.shields.io/badge/Question2Answer-v1.8.5-blue.svg?style=flat)](https://github.com/q2a/question2answer/releases)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/MominRaza/Mayro/issues)
